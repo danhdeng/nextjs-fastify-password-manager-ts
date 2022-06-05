@@ -1,7 +1,7 @@
 import { FastifyReply,FastifyRequest } from "fastify";
 import { COOKIE_DOMAIN } from "../../constants";
 import { logger } from "../../utils/logger";
-import { createVault } from "../vault/vault.service";
+import { createVault, findVaultByUser } from "../vault/vault.service";
 
 import { createUser, findUserByEmailAndPassword, generateSalt } from "./user.service";
 

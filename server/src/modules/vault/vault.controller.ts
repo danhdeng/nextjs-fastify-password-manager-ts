@@ -1,4 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
+import { get } from "lodash";
 import { logger } from "../../utils/logger";
 import { updateVault } from "./vault.service";
 
