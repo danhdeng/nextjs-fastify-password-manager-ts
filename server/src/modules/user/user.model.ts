@@ -10,10 +10,10 @@ import argon2 from "argon2";
 })
 export class User{
     @prop({ required: true, unique: true })
-    email!: string;
+    email: string;
 
     @prop({required: true})
-    password!:string;
+    password:string;
 }
 
 export const UserModel =getModelForClass(User,{
