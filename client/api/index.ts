@@ -5,7 +5,7 @@ const vaultBase=`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/vault`;
 
 export  function registerUser(
     payload:{
-        hashedPassword:string;
+        password: string;
         email:string;
     }
 ) {
@@ -16,7 +16,7 @@ export  function registerUser(
 
 export  function loginUser (
      payload:{
-        hashedPassword:string;
+        password:string;
         email:string;
     }
 ) {

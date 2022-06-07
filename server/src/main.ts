@@ -26,7 +26,6 @@ async function main(){
 
     const signals=["SIGTERM","SIGINT"];
     for(let i=0; i<signals.length; i++){
-
         gracefulShutdown(signals[i], app);
     }
 }

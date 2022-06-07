@@ -9,7 +9,9 @@ export async function registerUserHandler(
     request: FastifyRequest<{Body: Parameters<typeof createUser>[number]}>,
     reply: FastifyReply
 ){
+    logger.info("register handler calling");
     const body=request.body;
+    console.log(body);
     try {
         const user=await createUser(body);
         const salt =generateSalt();
@@ -39,6 +41,8 @@ export async function loginHandler(
      request: FastifyRequest<{Body: Parameters<typeof createUser>[number]}>,
     reply: FastifyReply
 ){
+    logger.info("login handler calling");
+
     const user=await findUserByEmailAndPassword(request.body);
 
     if(!user){

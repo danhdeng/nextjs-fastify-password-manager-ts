@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import { UserModel } from './user.model';
 import argon2 from 'argon2';
+import { logger } from '../../utils/logger';
 
 //generate the salt
 export function generateSalt(){
@@ -10,11 +11,11 @@ export function generateSalt(){
 //create a new user 
 export async function createUser(
     input:{
-        hashedPassword: string;
+        password: string;
         email: string;
     }
 ){
-    return UserModel.create({email: input.email, password: input.hashedPassword});
+    return UserModel.create({email: input.email, password: input.password});
     
 }
 
@@ -26,14 +27,14 @@ async function getHashPassword(password: string){
 
 export async function findUserByEmailAndPassword({
     email,
-    hashedPassword
+    password
 }:{
     email: string; 
-    hashedPassword: string;
+    password: string;
 }){
-    const user = UserModel.findOne({email});
-
-    const hash = await getHashPassword(hashedPassword);
+    const user =await UserModel.findOne({email});
+    logger.info(user);
+    const hash = await getHashPassword(password);
 
     if(!user || !argon2.verify(user.password, hash)){
         return null;

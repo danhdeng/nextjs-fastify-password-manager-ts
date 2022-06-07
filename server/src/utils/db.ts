@@ -6,7 +6,9 @@ import {logger} from "./logger";
 
 export async function connectToDb(){
     try {
+        logger.info(`DB connection string: ${DB_CONNECTION_STRING}`);
         await mongoose.connect(DB_CONNECTION_STRING);
+        logger.info("Connected to database");
     } catch (error) {
         logger.error(error, "Error connecting to database");
         process.exit(1);
