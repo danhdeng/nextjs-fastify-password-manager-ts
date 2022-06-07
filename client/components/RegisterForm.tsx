@@ -1,7 +1,8 @@
 import React from 'react'
+import FormWrapper from './FormWrapper'
 
 export default function RegisterForm() {
   return (
-    <div>RegisterForm</div>
+    <FormWrapper>RegisterForm</FormWrapper>
   )
 }

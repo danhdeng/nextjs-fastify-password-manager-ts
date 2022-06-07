@@ -1,7 +1,8 @@
 import React from 'react'
+import FormWrapper from './FormWrapper'
 
 export default function LoginForm() {
   return (
-    <div>LoginForm</div>
+    <FormWrapper>LoginForm</FormWrapper>
   )
 }

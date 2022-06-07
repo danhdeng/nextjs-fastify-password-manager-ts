@@ -1,7 +1,14 @@
 import React from 'react'
 
-export default function FormWrapper() {
+import {Box, BoxProps} from "@chakra-ui/react";
+
+export default function FormWrapper({
+  children,
+  ...props
+}:{children: React.ReactNode} & BoxProps) {
   return (
-    <div>FormWrapper</div>
+    <Box w="100%" maxW="container.sm" boxShadow="xl" p="8" as="form" { ...props }>          
+      {children}
+    </Box>
   )
 }
